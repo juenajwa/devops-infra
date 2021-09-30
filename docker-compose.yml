@@ -8,5 +8,14 @@ services:
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
+  #version control
+  gogs:
+    image: gogs/gogs:latest
+    ports:
+      - "3000:3000"
+      - "50022:22"
+    volumes:
+      - gogs_data:/data
 volumes:
   jenkins_home:
+  gogs_data:
