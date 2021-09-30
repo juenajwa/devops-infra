@@ -1,0 +1,4 @@
+FROM maven:3.8.2-openjdk-11
+RUN mkdir /slave
+COPY agent.jar /slave/agent.jar
+CMD java -jar /slave/agent.jar -jnlpUrl http://jenkins:8080/computer/maven/jenkins-agent.jnlp -secret 86f57af90f4d29379faa6c014a33484b77ec4d626aa9014d9d358faa2713eb97 -workDir "/slave"
