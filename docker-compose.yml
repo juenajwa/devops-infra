@@ -23,6 +23,8 @@ services:
     build:
       context: .
       dockerfile: "maven-dockerfile"
+      args:
+        mavensecret:
     links:
       - "jenkins"
     depends_on:
