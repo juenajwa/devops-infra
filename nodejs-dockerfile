@@ -1,0 +1,6 @@
+FROM timbru31/java-node:latest
+ARG nodejssecret
+ENV nodejssecret=$nodejssecret
+RUN mkdir /slave
+COPY agent.jar /slave/agent.jar
+CMD java -jar /slave/agent.jar -jnlpUrl http://jenkins:8080/computer/nodejs/jenkins-agent.jnlp -secret ${nodejssecret} -workDir "/slave"

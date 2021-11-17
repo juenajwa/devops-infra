@@ -23,6 +23,19 @@ services:
     build:
       context: .
       dockerfile: "maven-dockerfile"
+      args:
+        mavensecret:
+    links:
+      - "jenkins"
+    depends_on:
+      - "jenkins"
+  #node slave
+  nodejs:
+    build:
+      context: .
+      dockerfile: "nodejs-dockerfile"
+      args:
+        nodejssecret:
     links:
       - "jenkins"
     depends_on:
